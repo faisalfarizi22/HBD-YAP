@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Cake</title>
+    <link rel="stylesheet" href="cake.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="navigation">
+        <div class="back-button" onclick="goToSlideshowPage()">
+            <img src="icons/icons8-back-50.png" alt="Back Icon">
+        </div>
+        <div class="gift-button" onclick="goToGiftPage()">
+            <img src="icons/icons8-gift-box-94.png" alt="Gift Icon">
+        </div>
+    </div>
+    <div class="cake-container">
+        <h1>For Yeni</h1>
+        <div class="cake">
+            <div class="cherry"></div>
+            <div class="candle">
+                <div class="flame"></div>
+                <div class="flame"></div>
+                <div class="flame"></div>
+                <div class="flame"></div>
+                <div class="flame"></div>
+            </div>
+            <div class="layer one"></div>
+            <div class="layer two"></div>
+            <div class="layer three"></div>
+        </div>
+    </div>
+    <div class="light-candle-icon" onclick="lightCandles()">
+        <img src="icons/icons8-lighter-94.png" alt="Light Candle Icon">
+    </div>
+
+    <!-- Audio elements for background music and sound effects -->
+    <audio id="cheerSound" src="music and sound effect/cheering-and-clapping-crowd-1-5995.mp3"></audio>
+    <audio id="clapSound" src="music and sound effect/claps-44774.mp3"></audio>
+
+    <script src="cake.js"></script>
+</body>
+</html>

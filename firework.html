@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Yeni</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 10px;
+            width: 95%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 50px;
+            z-index: 1000;
+        }
+
+        .gift-button,
+        .back-button {
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+        }
+
+        .gift-button img,
+        .back-button img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .name {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 6rem;
+            color: #fff;
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff, 0 0 60px #ff00ff, 0 0 70px #ff00ff;
+            animation: glow 1s infinite alternate, move 3s ease-in-out infinite;
+            z-index: 100;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff, 0 0 60px #ff00ff, 0 0 70px #ff00ff;
+            }
+            to {
+                text-shadow: 0 0 20px #fff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff, 0 0 60px #ff00ff, 0 0 70px #ff00ff, 0 0 80px #ff00ff;
+            }
+        }
+
+        @keyframes move {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            50% {
+                transform: translate(-50%, -45%) rotate(5deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+        }
+
+        @media (max-width: 600px) {
+    .name {
+        font-size: 3rem;
+    }
+
+    .gift-button,
+    .back-button {
+        width: 50px;
+        height: 50px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="navigation">
+        <div class="gift-button" onclick="goToGiftPage()">
+            <img src="icons/icons8-gift-box-94.png" alt="Gift Icon">
+        </div>
+        <div class="back-button" onclick="goToSlideshowPage()">
+            <img src="icons/icons8-back-50.png" alt="Back Icon">
+        </div>
+    </div>
+
+    <div class="name" id="name">YENI ANGGRIANI PUTRI</div>
+    
+    <!-- Create a canvas element on which the fireworks will be drawn -->
+    <canvas id="fireworks"></canvas>
+
+    <audio id="fireworkSound" src="music and sound effect/DJ SELAMAT ULANG TAHUN.mp3"></audio>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Function to navigate to the gift page
+            window.goToGiftPage = function() {
+                window.location.href = 'gift.html';
+            }
+
+            // Function to navigate to the slideshow page
+            window.goToSlideshowPage = function() {
+                window.location.href = 'slideshow.html';
+            }
+
+            // Get the canvas element and its drawing context
+            const canvas = document.getElementById('fireworks');
+            const ctx = canvas.getContext('2d');
+            
+            // Set the canvas size to full screen
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            // Define the Particle class for the explosion particles
+            class Particle {
+                constructor(x, y, color) {
+                    this.x = x;
+                    this.y = y;
+                    this.color = color;
+                    this.velocity = {
+                        x: (Math.random() - 0.5) * 8,
+                        y: (Math.random() - 0.5) * 8
+                    };
+                    this.alpha = 1;
+                    this.friction = 0.97;
+                }
+
+                draw() {
+                    ctx.globalAlpha = this.alpha;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, 2, 0, Math.PI * 2, false);
+                    ctx.fillStyle = this.color;
+                    ctx.fill();
+                }
+
+                update() {
+                    this.velocity.x *= this.friction;
+                    this.velocity.y *= this.friction;
+                    this.x += this.velocity.x;
+                    this.y += this.velocity.y;
+                    this.alpha -= 0.02;
+                }
+            }
+
+            // Define the Firework class for the rockets
+            class Firework {
+                constructor(x, y, color) {
+                    this.x = x;
+                    this.y = y;
+                    this.color = color;
+                    this.velocity = { x: 0, y: Math.random() * -2.5 - 0.5 };
+                    this.particles = [];
+                    this.lifespan = 50;
+                    this.hasExploded = false;
+                }
+
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, 3, 0, Math.PI * 2, false);
+                    ctx.fillStyle = this.color;
+                    ctx.fill();
+                }
+
+                explode() {
+                    for (let i = 0; i < 15; i++) {
+                        this.particles.push(new Particle(this.x, this.y, this.color));
+                    }
+                    document.getElementById('fireworkSound').play();
+                }
+
+                update() {
+                    this.lifespan--;
+
+                    if (this.lifespan <= 0 && !this.hasExploded) {
+                        this.explode();
+                        this.velocity = { x: 0, y: 0 };
+                        this.hasExploded = true;
+                    } else if (this.lifespan > 0) {
+                        this.y += this.velocity.y;
+                    }
+
+                    for (let i = 0; i < this.particles.length; i++) {
+                        this.particles[i].update();
+                        this.particles[i].draw();
+                    }
+
+                    this.particles = this.particles.filter(p => p.alpha > 0);
+                }
+            }
+
+            let fireworks = [];
+
+            function animate() {
+                requestAnimationFrame(animate);
+
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                fireworks.forEach((firework, index) => {
+                    firework.update();
+                    firework.draw();
+
+                    if (firework.lifespan <= 0 && firework.particles.length === 0) {
+                        fireworks.splice(index, 1);
+                    }
+                });
+
+                if (Math.random() < 0.05) { 
+                    const x = Math.random() * canvas.width;
+                    const color = `hsl(${Math.random() * 360}, 50%, 50%)`;
+                    fireworks.push(new Firework(x, canvas.height, color));
+                }
+            }
+
+            animate();
+
+            // Play music when user interacts with the page
+            document.body.addEventListener('click', function() {
+                document.getElementById('fireworkSound').play();
+            });
+        });
+    </script>
+</body>
+</html>

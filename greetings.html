@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Yeni</title>
+    <link rel="stylesheet" href="greetings.css">
+    <style>
+        canvas {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1; /* Ensure canvas is behind other content */
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1 id="greeting"></h1>
+            <p id="ucapan" style="display: none;"></p>
+            <div id="arrowContainer" class="arrow-container" style="display: none;" onclick="scrollToSection()">
+                <p id="scrollText">Klik Di sini</p>
+                <div class="arrow"></div>
+            </div>
+        </div>
+    </div>
+    <div class="love-container"></div>
+    <canvas id="fireworks"></canvas>
+    <audio id="birthdayMusic" src="music and sound effect/Gellen Martadinata.mp3"></audio>
+    <script src="greetings.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>

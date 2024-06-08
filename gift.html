@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Yeni</title>
+    <link rel="stylesheet" href="gift.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <div class="navigation">
+        <div class="cake-button" onclick="goToCakePage()">
+            <img src="icons/icons8-birthday-94.png" alt="Cake Icon">
+        </div>
+        <div class="firework-button" onclick="openFireworkPage()">
+            <img src="icons/icons8-firework-94.png" alt="Firework Icon">
+        </div>
+    </div>
+    <div class="gift-container">
+        <div class="gift-box" id="giftBox1" onclick="selectGift(1)">
+            <img src="icons/icons8-gift-box-94.png" alt="Gift Box 1">
+        </div>
+        <div class="gift-box" id="giftBox2" onclick="selectGift(2)">
+            <img src="icons/icons8-gift-box-94.png" alt="Gift Box 2">
+        </div>
+        <div class="gift-box" id="giftBox3" onclick="selectGift(3)">
+            <img src="icons/icons8-gift-box-94.png" alt="Gift Box 3">
+        </div>
+    </div>
+
+    <div id="prizeContainer" class="prize-container">
+        <h1 id="prizeText"></h1>
+        <img id="prizeImage" src="" alt="Prize Image" class="prize-image">
+    </div>
+
+    <audio id="giftMusic" src="music and sound effect/DJ BEAUTIFUL THINGS REMIX (DJ Desa x Madara Dusal).mp3" autoplay loop></audio>
+    <audio id="cheerSound" src="music and sound effect/cheering-and-clapping-crowd-1-5995.mp3"></audio>
+    <audio id="applauseSound" src="music and sound effect/claps-44774.mp3"></audio>
+
+    <script src="gift.js"></script>
+</body>
+</html>
