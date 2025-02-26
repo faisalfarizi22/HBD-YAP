@@ -191,6 +191,7 @@ function animateFireworks() {
 animateFireworks();
 // Buat letusan kembang api secara periodik (setiap 800ms)
 setInterval(createFirework, 800);
+}
 
 function navigateToSlideshow() {
     window.location.href = 'slideshow.html';
