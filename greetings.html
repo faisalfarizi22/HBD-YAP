@@ -5,32 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For Yeni</title>
     <link rel="stylesheet" href="greetings.css">
-    <style>
-        canvas {
-            display: block;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: -1; /* Ensure canvas is behind other content */
-            pointer-events: none;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="stars"></div>
+    <div class="moon"></div>
+    <div class="shooting-stars"></div>
+    
     <div class="container">
         <div class="content">
-            <h1 id="greeting"></h1>
-            <p id="ucapan" style="display: none;"></p>
-            <div id="arrowContainer" class="arrow-container" style="display: none;" onclick="scrollToSection()">
-                <p id="scrollText">Klik Di sini</p>
-                <div class="arrow"></div>
+            <h1 id="greeting" class="greeting-text"></h1>
+            <div class="message-box">
+                <p id="ucapan" class="message-text"></p>
+            </div>
+            <div id="navigation" class="navigation-buttons">
+                <button id="exploreBtn" class="nav-btn" onclick="navigateToSlideshow()">
+                    <i class="fas fa-images"></i>
+                    <span>Lihat Galeri</span>
+                </button>
+                <button id="cakeBtn" class="nav-btn" onclick="navigateToCake()">
+                    <i class="fas fa-birthday-cake"></i>
+                    <span>Kue Ulang Tahun</span>
+                </button>
+                <button id="giftBtn" class="nav-btn" onclick="navigateToGift()">
+                    <i class="fas fa-gift"></i>
+                    <span>Hadiah</span>
+                </button>
+                <button id="fireworkBtn" class="nav-btn" onclick="navigateToFirework()">
+                    <i class="fas fa-rocket"></i>
+                    <span>Kembang Api</span>
+                </button>
             </div>
         </div>
     </div>
-    <div class="love-container"></div>
+    
+    <div class="heart-container"></div>
     <canvas id="fireworks"></canvas>
-    <audio id="birthdayMusic" src="music and sound effect/Gellen Martadinata.mp3"></audio>
+    
+    <audio id="birthdayMusic" src="music and sound effect/Gellen Martadinata.mp3" loop></audio>
+    
     <script src="greetings.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 </html>
