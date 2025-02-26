@@ -1,31 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Yeni</title>
-    <link rel="stylesheet" href="slideshow.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Yeni</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Optional: Import Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="home-button" onclick="openIndexPage()">
-        <img id="HomeButton" src="icons/icons8-home-button-50.png" alt="Home Button">
+  <header>
+    <div class="nav-buttons">
+      <button class="home-button" onclick="openIndexPage()">
+        <img src="icons/icons8-home-button-50.png" alt="Home">
+      </button>
+      <button class="music-control" onclick="toggleMusic()">
+        <img id="musicIcon" src="icons/play.png" alt="Music">
+      </button>
     </div>
-    <div class="music-control" onclick="toggleMusic()">
-        <img id="musicIcon" src="icons/play.png" alt="Music Icon">
-    </div>
-    <div class="floating-icon" id="cakeIcon" onclick="openCakePage()">
-        <img src="icons/icons8-birthday-94.png" alt="Cake Icon">
-    </div>
-    <div class="floating-icon" id="giftIcon" onclick="openGiftPage()">
-        <img src="icons/icons8-gift-box-94.png" alt="Gift Icon">
-    </div>
-    <div class="floating-icon" id="fireworkIcon" onclick="openFireworkPage()">
-        <img src="icons/icons8-firework-94.png" alt="Firework Icon">
-    </div>
-    <div class="slideshow-section">
-        <div class="slideshow-container">
-            <div class="slideshow">
+  </header>
+
+  <main>
+    <section class="slideshow-section">
+      <div class="slideshow-container">
+        <div class="slideshow">
                 <img class="slide" src="image/1715529822608.jpg" alt="Photo 1">
                 <img class="slide" src="image/1715529938591.jpg" alt="Photo 2">
                 <img class="slide" src="image/20240406-WA0028.jpg" alt="Photo 3">
@@ -146,8 +144,24 @@
             <img src="image/IMG_20240216_115555_326@1261835430.jpg" alt="Photo 57" onclick="showSlide(56)">
             <!-- Add more photos as needed -->
         </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="floating-icons">
+      <button class="floating-icon" id="cakeIcon" onclick="openCakePage()">
+        <img src="icons/icons8-birthday-94.png" alt="Cake">
+      </button>
+      <button class="floating-icon" id="giftIcon" onclick="openGiftPage()">
+        <img src="icons/icons8-gift-box-94.png" alt="Gift">
+      </button>
+      <button class="floating-icon" id="fireworkIcon" onclick="openFireworkPage()">
+        <img src="icons/icons8-firework-94.png" alt="Firework">
+      </button>
     </div>
-    <audio id="slideshowMusic" src="music and sound effect/musik1.mp3" loop></audio>
-    <script src="slideshow.js"></script>
+  </footer>
+
+  <audio id="slideshowMusic" src="music and sound effect/musik1.mp3" loop></audio>
+  <script src="script.js"></script>
 </body>
 </html>
