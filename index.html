@@ -5,24 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For Yeni</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="stars"></div>
+    <div class="moon"></div>
     <div class="container">
         <div class="content">
-            <marquee behavior="scroll" direction="left"><h1>Hallo, Selamat Datang!</h1></marquee>
-            <button onclick="bukaPopUp()">Masuk</button>
+            <h1 class="welcome-text">Selamat Datang</h1>
+            <p class="subtitle">Untuk saat yang istimewa di usia yang matang</p>
+            <button class="enter-btn" onclick="bukaPopUp()">
+                <span>Masuk</span>
+                <i class="fas fa-chevron-right"></i>
+            </button>
         </div>
     </div>
-
     <div id="popup" class="popup">
         <div class="popup-content">
             <span class="close" onclick="tutupPopUp()">&times;</span>
             <h2>Masukkan Nama Anda</h2>
-            <input type="text" id="namaInput" placeholder="Masukkan nama lengkap Anda...">
-            <button class="submit-button" onclick="masuk()">Submit</button>
+            <div class="input-container">
+                <input type="text" id="namaInput" placeholder="Masukkan nama lengkap Anda...">
+                <button class="submit-button" onclick="masuk()">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
