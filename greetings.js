@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Set personalized message
     const messageElement = document.getElementById('ucapan');
-    const message = `Pada hari yang istimewa ini, saya ingin mengucapkan selamat ulang tahun. Di usia yang semakin matang (prime), semoga kebijaksanaan dan kebahagiaan terus menyertai setiap langkahmu. Seperti purnama yang bersinar di langit malam, semoga hidupmu selalu dipenuhi dengan cahaya kebahagiaan dan cinta. Semoga tahun ini membawa lebih banyak keberhasilan, kebahagiaan, dan pengalaman berharga dalam perjalanan hidupmu.`;
+    const message = `Pada hari yang istimewa ini, saya ingin mengucapkan selamat ulang tahun. Di usia saat ini, semoga kebijaksanaan dan kebahagiaan terus menyertai setiap langkahmu. Seperti purnama yang bersinar di langit malam, semoga hidupmu selalu dipenuhi dengan cahaya kebahagiaan dan cinta. Semoga tahun ini membawa lebih banyak keberhasilan, kebahagiaan, dan pengalaman berharga dalam perjalanan hidupmu.`;
     
     // Type message with animation
     typeMessage(messageElement, message, 0, 30);
